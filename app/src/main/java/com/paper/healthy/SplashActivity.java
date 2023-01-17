@@ -36,10 +36,8 @@ public class SplashActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        // 如果未登录跳转登录页面
+                        // 跳转登录页面
                         ActivityUtils.startActivity(LoginActivity.class);
-                        // 登录跳转主页面
-
                         // 关闭欢迎页
                         finish();
                     }

@@ -94,7 +94,10 @@ public class LoginActivity extends AppCompatActivity {
                 List<User> users = LitePal.where("name = ? and pass = ?",usertext,  passtext).find(User.class);
                 // 跳转主页面
                 if (users!=null && users.size()>0){
+                    // 跳转主页面
                     ActivityUtils.startActivity(MainActivity.class);
+                    // 关闭登陆页面
+                    finish();
                 }else {
                     Toast.makeText(LoginActivity.this,"用户名或者密码不正确",Toast.LENGTH_SHORT).show();
                 }

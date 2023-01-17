@@ -1,18 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Tabbar背景色 -->
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+        <View
+            android:background="@color/grey2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"></View>
+        <RadioGroup
+            android:paddingTop="5dp"
+            android:id="@+id/tobar"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/calorie"
+                android:layout_width="wrap_content"
+                android:button="@null"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/tabbar_calorie_selector"
+                android:textColor="@drawable/tabbar_selector"
+                android:text="卡路里"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatRadioButton>
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/sports"
+                android:layout_width="wrap_content"
+                android:button="@null"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/tabbar_sports_selector"
+                android:text="运动"
+                android:textColor="@drawable/tabbar_selector"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatRadioButton>
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/own"
+                android:layout_width="wrap_content"
+                android:button="@null"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/tabbar_own_selector"
+                android:text="我的"
+                android:textColor="@drawable/tabbar_selector"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatRadioButton>
+        </RadioGroup>
+
+
+</LinearLayout>
+</LinearLayout>

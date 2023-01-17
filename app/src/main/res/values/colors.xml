@@ -9,10 +9,17 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="bg">#FFF1F4F8</color>
+
     <color name="blue">#2C77E5</color>
     <color name="blue2">#1AD8E2</color>
 
 
+    <color name="grey">#666666</color>
     <color name="grey2">#998F8F8F</color>
+
+
+    <color name="red">#E91E63</color>
+    <color name="red2">#F88CB1</color>
+    <color name="red3">#FDD4E2</color>
 
 </resources>
