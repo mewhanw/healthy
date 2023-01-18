@@ -46,6 +46,8 @@ dependencies {
     implementation 'org.litepal.guolindev:core:3.2.3'
     // 工具类第三方：https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
     implementation 'com.blankj:utilcodex:1.31.1'
+    implementation 'im.dacer:AndroidCharts:1.0.4'
+
 
 
 }

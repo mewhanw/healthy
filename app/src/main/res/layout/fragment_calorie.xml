@@ -7,6 +7,20 @@
     android:background="@color/bg"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <TextView
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:text="卡 路 里"
+        android:textColor="@color/grey"
+        android:layout_height="wrap_content"></TextView>
+    <View
+        android:background="@color/grey2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -57,6 +71,9 @@
         android:textStyle="bold"
         android:layout_height="wrap_content"></TextView>
     <LinearLayout
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -71,7 +88,7 @@
             android:id="@+id/drink"
             android:layout_width="wrap_content"
             android:drawableTop="@drawable/ic_drink"
-            android:text="鸡腿"
+            android:text="饮料"
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="wrap_content"></TextView>
@@ -80,7 +97,7 @@
             android:id="@+id/fish"
             android:layout_width="wrap_content"
             android:drawableTop="@drawable/ic_fish"
-            android:text="鸡腿"
+            android:text="鱼"
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="wrap_content"></TextView>
@@ -89,7 +106,7 @@
             android:id="@+id/lettuce"
             android:layout_width="wrap_content"
             android:drawableTop="@drawable/ic_lettuce"
-            android:text="鸡腿"
+            android:text="青菜"
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="wrap_content"></TextView>
@@ -97,19 +114,22 @@
             android:id="@+id/pear"
             android:layout_width="wrap_content"
             android:drawableTop="@drawable/ic_pear"
-            android:text="鸡腿"
+            android:text="水果"
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="wrap_content"></TextView>
     </LinearLayout>
     <LinearLayout
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <TextView
         android:id="@+id/prawn"
         android:layout_width="0dp"
         android:drawableTop="@drawable/ic_prawn"
-        android:text="鸡腿"
+        android:text="虾"
         android:layout_weight="1"
         android:gravity="center"
         android:layout_height="wrap_content"></TextView>
@@ -118,7 +138,7 @@
         android:id="@+id/steak"
         android:layout_width="0dp"
         android:drawableTop="@drawable/ic_steak"
-        android:text="鸡腿"
+        android:text="红肉"
         android:layout_weight="1"
         android:gravity="center"
         android:layout_height="wrap_content"></TextView>
@@ -126,7 +146,7 @@
         android:id="@+id/rich"
         android:layout_width="0dp"
         android:drawableTop="@drawable/ic_rice"
-        android:text="鸡腿"
+        android:text="米饭"
         android:layout_weight="1"
         android:gravity="center"
         android:layout_height="wrap_content"></TextView>
@@ -141,4 +161,5 @@
             android:gravity="center"
             android:layout_height="wrap_content"></TextView>
 </LinearLayout>
+
 </LinearLayout>
