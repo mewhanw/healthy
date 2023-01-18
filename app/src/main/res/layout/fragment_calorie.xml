@@ -141,44 +141,4 @@
             android:gravity="center"
             android:layout_height="wrap_content"></TextView>
 </LinearLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    <ImageView
-        android:id="@+id/img_sport"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_sport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ImageView>
-    <TextView
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/img_sport"
-        android:layout_marginBottom="30dp"
-        android:text="消耗卡路里"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@color/grey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></TextView>
-
-    <TextView
-        android:id="@+id/sport"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/img_sport"
-        app:layout_constraintTop_toTopOf="@+id/img_sport"
-        android:layout_marginBottom="20dp"
-        android:text="1550"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        android:textColor="@color/grey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></TextView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
