@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="20sp"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity">
+
+<TextView
+    android:id="@+id/a"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:text="鸡腿"
+    android:textSize="14sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/b"
+        app:layout_constraintStart_toEndOf="@+id/a"
+        app:layout_constraintTop_toTopOf="@+id/a"
+        app:layout_constraintBottom_toBottomOf="@+id/a"
+        android:text="摄入："
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        app:layout_constraintStart_toEndOf="@+id/b"
+        app:layout_constraintTop_toTopOf="@+id/b"
+        app:layout_constraintBottom_toBottomOf="@+id/b"
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/blue2"
+        android:textSize="18sp"
+        android:inputType="numberSigned"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/c"
+        app:layout_constraintStart_toEndOf="@+id/num"
+        app:layout_constraintTop_toTopOf="@+id/num"
+        app:layout_constraintBottom_toBottomOf="@+id/num"
+        android:text="份; 合计卡路里"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/calorie"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/c"
+        app:layout_constraintTop_toTopOf="@+id/c"
+        app:layout_constraintBottom_toBottomOf="@+id/c"
+        android:text="0"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
