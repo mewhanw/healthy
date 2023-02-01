@@ -22,6 +22,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText pass;
     // 再次输入密码框
     private EditText pass2;
+    // 返回
+    private TextView back;
 
 
 
@@ -47,6 +49,8 @@ public class RegisterActivity extends AppCompatActivity {
         pass = findViewById(R.id.pass);
         // 再次输入密码
         pass2 = findViewById(R.id.pass2);
+        // back
+        back = findViewById(R.id.back);
 
     }
     /**
@@ -109,6 +113,12 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 

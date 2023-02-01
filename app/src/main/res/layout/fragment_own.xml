@@ -19,4 +19,142 @@
         android:background="@color/grey2"
         android:layout_width="match_parent"
         android:layout_height="1dp"></View>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <view
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                class="im.dacer.androidcharts.LineView"
+                android:id="@+id/line_view" />
+        </HorizontalScrollView>
+
+    </LinearLayout>
+        <ImageView
+            android:id="@+id/addme"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_marginTop="10dp"
+        android:background="@color/grey2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/ic_bg"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="我的身高："
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:id="@+id/hei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:maxLength="4"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue2"
+                android:textSize="18sp"
+                android:inputType="numberSigned"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="单位: 厘米 cm"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="我的体重："
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:id="@+id/wei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:maxLength="4"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue2"
+                android:textSize="18sp"
+                android:inputType="numberSigned"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="单位: 千克 kg"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="性别："
+                android:layout_height="wrap_content"></TextView>
+            <RadioGroup
+                android:id="@+id/group"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/man"
+                    android:layout_width="wrap_content"
+                    android:text="男"
+                    android:layout_height="wrap_content"></RadioButton>
+                <RadioButton
+                    android:id="@+id/woman"
+                    android:layout_width="wrap_content"
+                    android:text="女"
+                    android:layout_height="wrap_content"></RadioButton>
+            </RadioGroup>
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="20dp"
+            android:id="@+id/submit"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/ic_btnbg"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="计 算 BMI"
+            android:layout_height="38dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="20dp"
+        android:id="@+id/exit"
+        android:layout_width="match_parent"
+        android:textColor="@color/red"
+        android:text="退出"
+        android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatButton>
 </LinearLayout>

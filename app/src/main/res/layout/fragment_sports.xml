@@ -177,7 +177,7 @@
             android:layout_height="wrap_content"></TextView>
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="center"
             android:text="开始时间"
             android:layout_height="wrap_content"></TextView>
@@ -195,6 +195,8 @@
             android:layout_height="wrap_content"></TextView>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyc"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_add.xml" value="0.2485" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_back.xml" value="0.277" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_bg.xml" value="0.277" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_btnbg.xml" value="0.1" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_buhang.xml" value="0.277" />
@@ -14,7 +16,9 @@
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_manshenghuojiajutubiao_.xml" value="0.161" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_own.xml" value="0.277" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_owned.xml" value="0.277" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_paobu.xml" value="0.277" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_pass.xml" value="0.1" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_qiche.xml" value="0.277" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_sport.xml" value="0.141" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_sports.xml" value="0.277" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/drawable/ic_sportsed.xml" value="0.277" />
@@ -32,10 +36,15 @@
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/activity_register.xml" value="0.14" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/activity_splash.xml" value="0.18" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/activity_sport_time.xml" value="0.2921875" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/dialog_calorie.xml" value="0.175" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/dialog_weight.xml" value="0.24270833333333333" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/fragment_calorie.xml" value="0.18" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/fragment_owm.xml" value="0.175" />
         <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/fragment_own.xml" value="0.25" />
-        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/fragment_sports.xml" value="0.175" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/fragment_sports.xml" value="0.5" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/item_calorie.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/gitee/healthy/app/src/main/res/layout/item_sport.xml" value="0.30625" />
       </map>
     </option>
   </component>

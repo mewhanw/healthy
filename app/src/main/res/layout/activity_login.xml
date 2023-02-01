@@ -85,7 +85,7 @@
         tools:ignore="MissingConstraints" />
 
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/forget"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,9 +93,9 @@
         android:textColor="@color/blue"
         android:textSize="14sp"
         android:text="忘记密码?"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_height="wrap_content"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -103,6 +103,6 @@
         android:textColor="@color/blue"
         android:textSize="14sp"
         android:text="注册"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

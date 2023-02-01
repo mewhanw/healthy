@@ -27,6 +27,8 @@ public class ForgetActivity extends AppCompatActivity {
     private EditText user;
     // 密码框
     private EditText pass;
+    // 返回
+    private TextView back;
 
 
 
@@ -51,6 +53,8 @@ public class ForgetActivity extends AppCompatActivity {
         user = findViewById(R.id.user);
         // 密码
         pass = findViewById(R.id.pass);
+        // back
+        back = findViewById(R.id.back);
 
     }
     /**
@@ -88,6 +92,12 @@ public class ForgetActivity extends AppCompatActivity {
                     Toast.makeText(ForgetActivity.this,"用户未注册",Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
