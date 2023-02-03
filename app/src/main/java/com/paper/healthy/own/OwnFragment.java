@@ -1,6 +1,7 @@
 package com.paper.healthy.own;
 
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
@@ -30,6 +32,7 @@ import com.paper.healthy.bean.Weigt;
 import org.litepal.LitePal;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import im.dacer.androidcharts.LineView;
@@ -86,16 +89,25 @@ public class OwnFragment extends Fragment {
         wei = contextView.findViewById(R.id.wei);
         // 男女
         group = contextView.findViewById(R.id.group);
-        setLineView();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            setLineView();
+        }
     }
 
     /**
      * 设置表数据
      * @param
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void setLineView(){
-        // 根据添加时间正序排序
-        List<Weigt> all = LitePal.order("time asc").limit(10).find(Weigt.class);
+        // 根据添加时间正序排序 取10条
+        List<Weigt> all = LitePal.order("time desc").limit(10).find(Weigt.class);
+        all.sort(new Comparator<Weigt>() {
+            @Override
+            public int compare(Weigt weigt1, Weigt weigt2) {
+                return  weigt1.getTime().compareTo(weigt2.getTime());
+            }
+        });
         lineView.setDrawDotLine(false); //optional
         // 展示全部数据
         lineView.setShowPopup(LineView.SHOW_POPUPS_All); //optional
