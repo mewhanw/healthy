@@ -18,6 +18,9 @@ import org.litepal.LitePal;
 
 import java.util.List;
 
+/**
+ * 登录页面
+ */
 public class LoginActivity extends AppCompatActivity {
     // 登录按钮
     private Button submit;

@@ -2,6 +2,10 @@ package com.paper.healthy.bean;
 
 import org.litepal.crud.LitePalSupport;
 
+/**
+ * 体重对象
+ * 体重折线图用
+ */
 public class Weigt extends LitePalSupport {
 
 

@@ -2,6 +2,10 @@ package com.paper.healthy.bean;
 
 import org.litepal.crud.LitePalSupport;
 
+/**
+ * 运动对象
+ * 运动页面使用
+ */
 public class Sport extends LitePalSupport {
 
     // 运动

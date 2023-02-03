@@ -32,6 +32,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 运动页面
+ * 消耗卡路里页面
+ */
 public class SportFragment extends Fragment {
 
     /**
@@ -50,7 +54,9 @@ public class SportFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contextView = inflater.inflate(R.layout.fragment_sports, container, false);
+        // 初始化控件
         initView(contextView);
+        // 设置点击事件
         setclick(contextView);
         return contextView;
     }
@@ -74,6 +80,7 @@ public class SportFragment extends Fragment {
         // 查询当天运动消耗总和
         Integer sporte = LitePal.where("stime like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) +"%'").sum(Sport.class, "calorie", Integer.class);
         if(sporte!=null){
+            // 设置卡路里总和
             sport.setText(String.valueOf(sporte));
         }
     }
@@ -176,14 +183,17 @@ public class SportFragment extends Fragment {
 
             @Override
             public void onLongClick(Sport item) {
+                // 创建dialog
                 // 提示是否删除数据
                 AlertDialog.Builder delDialog = new AlertDialog.Builder(getContext());
+                // 设置标题
                 delDialog.setTitle("删除");
+                // 设置提示信息
                 delDialog.setMessage("确定删除本条数据吗？");
+                // 取消按钮 关闭dialog
                 delDialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
                     }
                 });
                 delDialog.setPositiveButton("删除", new DialogInterface.OnClickListener() {
@@ -195,6 +205,7 @@ public class SportFragment extends Fragment {
                         dataList();
                     }
                 });
+                // 展示dialog
                 delDialog.show();
 
             }
@@ -210,6 +221,7 @@ public class SportFragment extends Fragment {
     private void goSportTime(String sport) {
         Bundle bundle = new Bundle();
         bundle.putString("sport",sport);
+        // 打开计时页面  传值运动类型
         ActivityUtils.startActivityForResult(bundle,this,SportTimeActivity.class,123);
     }
 
@@ -218,18 +230,23 @@ public class SportFragment extends Fragment {
      * 总和刷新
      */
     private void dataList() {
-        List<Sport> all = LitePal.findAll(Sport.class);
+        // 根据时间倒序 获取运动数据集合数据库
+        List<Sport> all = LitePal.order("stime desc").find(Sport.class);
+        // 设置新数据
         ((SportAdapter)recyc.getAdapter()).setLists(all);
+        // 刷新列表页面
         ((SportAdapter)recyc.getAdapter()).notifyDataSetChanged();
         // 查询当天运动消耗总和
         Integer sporte = LitePal.where("stime like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) +"%'").sum(Sport.class, "calorie", Integer.class);
         if(sporte!=null){
+            // 设置当前运动总和
             sport.setText(String.valueOf(sporte));
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        // 返回页面的时候 刷新一些列表
         dataList();
     }
 }

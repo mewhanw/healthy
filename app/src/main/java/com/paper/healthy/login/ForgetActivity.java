@@ -20,6 +20,9 @@ import org.litepal.LitePalDB;
 
 import java.util.List;
 
+/**
+ * 忘记密码页面
+ */
 public class ForgetActivity extends AppCompatActivity {
     // 登录按钮
     private Button submit;
@@ -94,6 +97,7 @@ public class ForgetActivity extends AppCompatActivity {
 
             }
         });
+        // 返回按钮 关闭页面
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

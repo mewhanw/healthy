@@ -10,6 +10,9 @@ import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.paper.healthy.login.LoginActivity;
 
+/**
+ * 欢迎页面
+ */
 public class SplashActivity extends AppCompatActivity {
 
     @Override

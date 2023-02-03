@@ -34,11 +34,14 @@ import java.util.List;
 
 import im.dacer.androidcharts.LineView;
 
+/**
+ * 我的页面
+ */
 public class OwnFragment extends Fragment {
 
-    // 表
+    // 表 折线图
    private LineView lineView;
-   // 添加体重
+   // 添加体重 新增按钮
    private ImageView add;
    // 计算bmi
    private Button submit;
@@ -56,8 +59,9 @@ public class OwnFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contextView = inflater.inflate(R.layout.fragment_own, container, false);
-
+        // 初始化控件
         initView(contextView);
+        // 添加监听
         initListenter();
         return contextView;
     }
@@ -68,12 +72,19 @@ public class OwnFragment extends Fragment {
      * @param contextView
      */
     private void initView(View contextView){
+        // 表 折线图
         lineView = (LineView)contextView.findViewById(R.id.line_view);
+        // 添加体重 新增按钮
         add = contextView.findViewById(R.id.addme);
+        // 计算bmi
         submit = contextView.findViewById(R.id.submit);
+        // 退出
         exit = contextView.findViewById(R.id.exit);
+        // 身高
         hei = contextView.findViewById(R.id.hei);
+        // 体重
         wei = contextView.findViewById(R.id.wei);
+        // 男女
         group = contextView.findViewById(R.id.group);
         setLineView();
     }
@@ -83,24 +94,31 @@ public class OwnFragment extends Fragment {
      * @param
      */
     public void setLineView(){
-        List<Weigt> all = LitePal.limit(10).find(Weigt.class);
+        // 根据添加时间正序排序
+        List<Weigt> all = LitePal.order("time asc").limit(10).find(Weigt.class);
         lineView.setDrawDotLine(false); //optional
-        lineView.setShowPopup(LineView.SHOW_POPUPS_MAXMIN_ONLY); //optional
+        // 展示全部数据
+        lineView.setShowPopup(LineView.SHOW_POPUPS_All); //optional
+        // 底部数据
         ArrayList<String> bottom = new ArrayList<>();
+        // 折线图数据
         ArrayList<ArrayList<Integer>> dataLists = new ArrayList<>();
         ArrayList<Integer> dataListsitem = new ArrayList<>();
 
         if(CollectionUtils.isNotEmpty(all)){
             for (Weigt weigt : all) {
-                bottom.add(weigt.getTime().substring(5,9));
+                // 截取日月展示
+                bottom.add(weigt.getTime().substring(5,10));
                 dataListsitem.add(weigt.getWeight());
             }
         }else {
+            // 为空设置0
             bottom.add("月-日");
             dataListsitem.add(0);
         }
         lineView.setBottomTextList(bottom);
         dataLists.add(dataListsitem);
+        // 展示
         lineView.setDataList(dataLists); //or lineView.setFloatDataList(floatDataLists)
     }
 
@@ -113,6 +131,7 @@ public class OwnFragment extends Fragment {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 杀死所有进程 exit（0） 退出程序
                 System.exit(0);
             }
         });
@@ -120,17 +139,23 @@ public class OwnFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                // 身高
                 String heivalue = hei.getText().toString();
+                //  体重
                 String weivalue = wei.getText().toString();
                 // 0男 1女
                 int sex = group.getCheckedRadioButtonId() == R.id.man? 0 : 1;
+                // 身高体重为数字
                 if(TextUtils.isDigitsOnly(heivalue) && TextUtils.isDigitsOnly(weivalue)){
+                    // 身高体重大于0
                     if(Integer.valueOf(heivalue)<=0 && Integer.valueOf(weivalue)<=0){
+                        // 小于0给出 吐司提示
                         Toast.makeText(getContext(),"体重身高请大于0",Toast.LENGTH_SHORT).show();
                     }else {
+                        // BMI逻辑：体重/（身高平方）。单位：千克 米
                         double v = Integer.valueOf(heivalue) / 100.0;
                         double v1 = Integer.valueOf(weivalue) / (v * v);
+                        // BMI的建议
                         String tuijian = "体重正常";
                         if(sex == 0){
                             // 男
@@ -148,17 +173,23 @@ public class OwnFragment extends Fragment {
                                 tuijian = "适当的运动 坚持循序渐进原则,以有氧运动为主,即低强度、长时间进行的运动,比如快走、慢跑、长距离慢速游泳、慢骑自行车等";
                             }
                         }
+                        // 创建dialog
                         AlertDialog.Builder delDialog = new AlertDialog.Builder(getContext());
+                        // 设置标题
                         delDialog.setTitle("BMI");
+                        // 设置提示信息
                         delDialog.setMessage("您的BMI是："+ String.format("%.2f", v1) +";       "+tuijian);
+                        // 确认按钮 点击关闭dialog
                         delDialog.setPositiveButton("确认", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                             }
                         });
+                        // 展示dialog
                         delDialog.show();
                     }
                 }else {
+                    // 吐司 提示输入数字
                     Toast.makeText(getContext(),"请输入数字",Toast.LENGTH_SHORT).show();
                 }
 
@@ -168,38 +199,50 @@ public class OwnFragment extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 创建dialog
                 AlertDialog.Builder inputDialog = new AlertDialog.Builder(getContext());
+                // 自定义dialog中间页面 初始化化
                 View view1 = LayoutInflater.from(getContext()).inflate(R.layout.dialog_weight, null);
-                // num 份数控件
+                // num 录入体重控件
                 EditText editText = view1.findViewById(R.id.num);
+                // 设置dialog标题   设置自定义页面
                 inputDialog.setTitle("体重").setView(view1);
+                // 关闭按钮  点击关闭dialog
                 inputDialog.setNegativeButton("关闭", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                     }
                 });
+                // 确定按钮
                 inputDialog.setPositiveButton("确定",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                // 获取输入的体重
                                 String num = editText.getText().toString();
+                                // 判断是否为数字
                                 if(TextUtils.isDigitsOnly(num)){
+                                    // 判断体重是否大于0
                                     if(Integer.valueOf(num)<=0){
+                                        // 提示体重大于0 吐司
                                         Toast.makeText(getContext(),"体重请大于0",Toast.LENGTH_SHORT).show();
                                     }else {
                                         // 新增一条数据保存数据库
                                         Weigt weigt = new Weigt();
+                                        // 设置体重
                                         weigt.setWeight(Integer.valueOf(num));
+                                        // 设置体重时间
                                         weigt.setTime(TimeUtils.getNowString());
                                         weigt.save();
                                         // 刷新列表
                                         setLineView();
                                     }
                                 }else {
+                                    // 提示请输入数字 吐司
                                     Toast.makeText(getContext(),"请输入数字",Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        }).show();
+                        }).show();// show展示dialog
             }
         });
     }

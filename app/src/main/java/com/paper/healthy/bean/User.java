@@ -2,10 +2,15 @@ package com.paper.healthy.bean;
 
 import org.litepal.crud.LitePalSupport;
 
+/**
+ * 用户对象
+ * 注册 改密码 登陆使用
+ */
 public class User extends LitePalSupport {
 
+    // 用户名
     private String name;
-
+    // 密码
     private String pass;
 
 

@@ -13,6 +13,9 @@ import com.blankj.utilcode.util.StringUtils;
 import com.paper.healthy.R;
 import com.paper.healthy.bean.User;
 
+/**
+ * 注册页面
+ */
 public class RegisterActivity extends AppCompatActivity {
     // 登录按钮
     private Button submit;
@@ -110,11 +113,13 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
                     finish();
                 }else {
+                    // 吐司 提示注册失败
                     Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
+        // 返回按钮关闭页面
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

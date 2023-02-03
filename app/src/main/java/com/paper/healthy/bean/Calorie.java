@@ -2,6 +2,10 @@ package com.paper.healthy.bean;
 
 import org.litepal.crud.LitePalSupport;
 
+/**
+ * 食物对象
+ * 摄入卡路里页面使用
+ */
 public class Calorie extends LitePalSupport {
 
     // 食物

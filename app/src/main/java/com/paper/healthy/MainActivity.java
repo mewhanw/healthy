@@ -18,6 +18,10 @@ import com.paper.healthy.calorie.CalorieFragment;
 import com.paper.healthy.own.OwnFragment;
 import com.paper.healthy.sports.SportFragment;
 
+/**
+ * 主页面
+ * 用于切换 卡路里 运动 我的页面
+ */
 public class MainActivity extends FragmentActivity {
     // 下方按钮集合
     RadioGroup radioGroup;
@@ -84,6 +88,7 @@ public class MainActivity extends FragmentActivity {
                 }
             }
         });
+        // 默认选中 卡路里页面
         findViewById(R.id.calorie).performClick();
     }
 
@@ -104,6 +109,7 @@ public class MainActivity extends FragmentActivity {
                 //并记录下本次点击“返回键”的时刻，以便下次进行判断
                 mExitTime = System.currentTimeMillis();
             } else {
+                // 杀死进程 退出程序
                 System.exit(0);
             }
             return true;
