@@ -25,6 +25,7 @@ import com.paper.healthy.R;
 import com.paper.healthy.bean.Calorie;
 import com.paper.healthy.bean.Sport;
 import com.paper.healthy.calorie.CalorieAdapter;
+import com.paper.healthy.config.SpConfig;
 
 import org.litepal.LitePal;
 
@@ -72,13 +73,13 @@ public class SportFragment extends Fragment {
         // 列表
         recyc = contextView.findViewById(R.id.recyc);
         // 获取所有运动
-        List<Sport> all = LitePal.order("stime desc").find(Sport.class);
+        List<Sport> all = LitePal.where("name = '"+ SpConfig.getUsername()+"'").order("stime desc").find(Sport.class);
         SportAdapter adapter = new SportAdapter(all);
         recyc.setAdapter(adapter);
         // 运动
         sport = contextView.findViewById(R.id.sport);
         // 查询当天运动消耗总和
-        Integer sporte = LitePal.where("stime like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) +"%'").sum(Sport.class, "calorie", Integer.class);
+        Integer sporte = LitePal.where("name = '"+ SpConfig.getUsername()+"' and stime like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) +"%'").sum(Sport.class, "calorie", Integer.class);
         if(sporte!=null){
             // 设置卡路里总和
             sport.setText(String.valueOf(sporte));
@@ -231,13 +232,13 @@ public class SportFragment extends Fragment {
      */
     private void dataList() {
         // 根据时间倒序 获取运动数据集合数据库
-        List<Sport> all = LitePal.order("stime desc").find(Sport.class);
+        List<Sport> all = LitePal.where("name = '"+ SpConfig.getUsername()+"'").order("stime desc").find(Sport.class);
         // 设置新数据
         ((SportAdapter)recyc.getAdapter()).setLists(all);
         // 刷新列表页面
         ((SportAdapter)recyc.getAdapter()).notifyDataSetChanged();
         // 查询当天运动消耗总和
-        Integer sporte = LitePal.where("stime like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) +"%'").sum(Sport.class, "calorie", Integer.class);
+        Integer sporte = LitePal.where("name = '"+ SpConfig.getUsername()+"' and stime like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) +"%'").sum(Sport.class, "calorie", Integer.class);
         if(sporte!=null){
             // 设置当前运动总和
             sport.setText(String.valueOf(sporte));

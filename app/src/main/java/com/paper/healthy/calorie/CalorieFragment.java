@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blankj.utilcode.util.TimeUtils;
 import com.paper.healthy.R;
 import com.paper.healthy.bean.Calorie;
+import com.paper.healthy.config.SpConfig;
 
 import org.litepal.LitePal;
 
@@ -84,13 +85,13 @@ public class CalorieFragment extends Fragment {
         // 列表
         recyc = contextView.findViewById(R.id.recyc);
         // 获取所有摄入食物
-        List<Calorie> all = LitePal.order("time desc").find(Calorie.class);
+        List<Calorie> all = LitePal.where("name = '"+ SpConfig.getUsername()+"'").order("time desc").find(Calorie.class);
         CalorieAdapter adapter = new CalorieAdapter(all);
         recyc.setAdapter(adapter);
         // 食物
         food = contextView.findViewById(R.id.food);
         // 查询当天摄入食物总和
-        Integer calorie = LitePal.where("time like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) + "%'").sum(Calorie.class, "calorie", Integer.class);
+        Integer calorie = LitePal.where("name = '"+ SpConfig.getUsername()+"' and time like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) + "%'").sum(Calorie.class, "calorie", Integer.class);
         if (calorie != null) {
             food.setText(String.valueOf(calorie));
         }
@@ -230,13 +231,13 @@ public class CalorieFragment extends Fragment {
      */
     private void dataList() {
         // 倒序获取摄入食物数据
-        List<Calorie> all = LitePal.order("time desc").find(Calorie.class);
+        List<Calorie> all = LitePal.where("name = '"+ SpConfig.getUsername()+"'").order("time desc").find(Calorie.class);
         // 设置数据源
         ((CalorieAdapter) recyc.getAdapter()).setLists(all);
         // 刷新列表
         ((CalorieAdapter) recyc.getAdapter()).notifyDataSetChanged();
         // 查询当天摄入食物总和
-        Integer calorie = LitePal.where("time like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) + "%'").sum(Calorie.class, "calorie", Integer.class);
+        Integer calorie = LitePal.where("name = '"+ SpConfig.getUsername()+"' and time like '" + TimeUtils.getNowString(TimeUtils.getSafeDateFormat("yyyy-MM-dd")) + "%'").sum(Calorie.class, "calorie", Integer.class);
         if (calorie != null) {
             // 卡路里总和
             food.setText(String.valueOf(calorie));
@@ -318,6 +319,7 @@ public class CalorieFragment extends Fragment {
                                     calorie1.setNum(Integer.valueOf(num));
                                     // 摄入卡路里
                                     calorie1.setCalorie(Integer.valueOf(num) * cal);
+                                    calorie1.setName(SpConfig.getUsername());
                                     calorie1.save();
                                 } else {
                                     // 更新数据
@@ -325,6 +327,7 @@ public class CalorieFragment extends Fragment {
                                     caloriebean.setNum(Integer.valueOf(num));
                                     caloriebean.setCalorie(Integer.valueOf(num) * cal);
                                     // 保存数据
+                                    caloriebean.setName(SpConfig.getUsername());
                                     caloriebean.save();
                                 }
 

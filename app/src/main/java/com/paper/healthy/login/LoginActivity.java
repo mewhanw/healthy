@@ -13,6 +13,7 @@ import com.blankj.utilcode.util.ActivityUtils;
 import com.paper.healthy.MainActivity;
 import com.paper.healthy.R;
 import com.paper.healthy.bean.User;
+import com.paper.healthy.config.SpConfig;
 
 import org.litepal.LitePal;
 
@@ -99,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (users!=null && users.size()>0){
                     // 跳转主页面
                     ActivityUtils.startActivity(MainActivity.class);
+                    SpConfig.setUsername(users.get(0).getName());
                     // 关闭登陆页面
                     finish();
                 }else {

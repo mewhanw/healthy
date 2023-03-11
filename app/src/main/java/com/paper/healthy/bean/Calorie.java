@@ -7,7 +7,8 @@ import org.litepal.crud.LitePalSupport;
  * 摄入卡路里页面使用
  */
 public class Calorie extends LitePalSupport {
-
+    // 用户名
+    private String name;
     // 食物
     private String food;
 
@@ -50,5 +51,13 @@ public class Calorie extends LitePalSupport {
 
     public void setCalorie(int calorie) {
         this.calorie = calorie;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -9,9 +9,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.blankj.utilcode.util.StringUtils;
+import com.blankj.utilcode.util.TimeUtils;
 import com.paper.healthy.R;
 import com.paper.healthy.bean.User;
+
+import java.util.Date;
 
 /**
  * 注册页面
@@ -27,6 +33,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText pass2;
     // 返回
     private TextView back;
+
+    // 生日
+    private EditText birthday;
 
 
 
@@ -54,6 +63,8 @@ public class RegisterActivity extends AppCompatActivity {
         pass2 = findViewById(R.id.pass2);
         // back
         back = findViewById(R.id.back);
+        //生日
+        birthday = findViewById(R.id.birthday);
 
     }
     /**
@@ -77,6 +88,15 @@ public class RegisterActivity extends AppCompatActivity {
                         return;
                     }
                 }
+
+                // 验证生日 判空
+                String birthdaytext = birthday.getText().toString();
+                // 如果为空提示返回
+                if (birthdaytext.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this,"请选择生日",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // 验证密码6-12位 判空
                 String passtext = pass.getText().toString();
                 // 如果为空提示返回
@@ -107,6 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
                 User user = new User();
                 user.setName(usertext);
                 user.setPass(passtext);
+                user.setBrithday(birthdaytext);
                 // save() 保存到数据库
                 if (user.save()) {
                     // 保存成功提示 然后关闭当前页面
@@ -117,6 +138,20 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        //  选择生日
+        birthday.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+//时间选择器
+                TimePickerView pvTime = new TimePickerBuilder(RegisterActivity.this, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        birthday.setText(TimeUtils.date2String(date,"yyyy-MM-dd"));
+                    }
+                }).isDialog(true).build();
+                pvTime.show();
             }
         });
         // 返回按钮关闭页面

@@ -13,6 +13,9 @@ public class User extends LitePalSupport {
     // 密码
     private String pass;
 
+    //生日
+    private String brithday;
+
 
     public String getName() {
         return name;
@@ -28,5 +31,13 @@ public class User extends LitePalSupport {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public String getBrithday() {
+        return brithday;
+    }
+
+    public void setBrithday(String brithday) {
+        this.brithday = brithday;
     }
 }

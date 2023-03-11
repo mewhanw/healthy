@@ -8,8 +8,8 @@ import org.litepal.crud.LitePalSupport;
  */
 public class Weigt extends LitePalSupport {
 
-
-
+    // 用户名
+    private String name;
     // 时间
     private String time;
 
@@ -31,5 +31,13 @@ public class Weigt extends LitePalSupport {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

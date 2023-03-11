@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.blankj.utilcode.util.ThreadUtils;
 import com.paper.healthy.R;
 import com.paper.healthy.bean.Sport;
+import com.paper.healthy.config.SpConfig;
 import com.paper.healthy.utils.TimeUtils;
 
 import java.util.HashMap;
@@ -138,6 +139,7 @@ public class SportTimeActivity extends AppCompatActivity {
                     // 消耗卡路里
                     sport.setCalorie(sport.getTime() * cals.get(sporti));
                     // 保存数据
+                    sport.setName(SpConfig.getUsername());
                     sport.save();
                     // 吐司 提示保存成功
                     Toast.makeText(SportTimeActivity.this, "保存成功", Toast.LENGTH_SHORT).show();

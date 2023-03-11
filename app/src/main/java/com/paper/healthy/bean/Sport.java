@@ -8,6 +8,8 @@ import org.litepal.crud.LitePalSupport;
  */
 public class Sport extends LitePalSupport {
 
+    // 用户名
+    private String name;
     // 运动
     private String sport;
 
@@ -60,5 +62,13 @@ public class Sport extends LitePalSupport {
 
     public void setCalorie(int calorie) {
         this.calorie = calorie;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -28,6 +28,7 @@ import com.blankj.utilcode.util.TimeUtils;
 import com.paper.healthy.R;
 import com.paper.healthy.bean.Calorie;
 import com.paper.healthy.bean.Weigt;
+import com.paper.healthy.config.SpConfig;
 
 import org.litepal.LitePal;
 
@@ -101,7 +102,7 @@ public class OwnFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void setLineView(){
         // 根据添加时间正序排序 取10条
-        List<Weigt> all = LitePal.order("time desc").limit(10).find(Weigt.class);
+        List<Weigt> all = LitePal.where("name = '"+ SpConfig.getUsername()+"'").order("time desc").limit(10).find(Weigt.class);
         all.sort(new Comparator<Weigt>() {
             @Override
             public int compare(Weigt weigt1, Weigt weigt2) {
@@ -245,6 +246,7 @@ public class OwnFragment extends Fragment {
                                         weigt.setWeight(Integer.valueOf(num));
                                         // 设置体重时间
                                         weigt.setTime(TimeUtils.getNowString());
+                                        weigt.setName(SpConfig.getUsername());
                                         weigt.save();
                                         // 刷新列表
                                         setLineView();
