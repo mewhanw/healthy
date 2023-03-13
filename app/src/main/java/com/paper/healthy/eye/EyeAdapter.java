@@ -1,6 +1,7 @@
 package com.paper.healthy.eye;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,9 @@ public class EyeAdapter extends RecyclerView.Adapter<EyeAdapter.ViewHolder> {
         holder.calorie.setText(String.valueOf(lists.get(position).getCalorie()));
         // 差值
         holder.dif.setText(String.valueOf(lists.get(position).getDif()));
-
+        if(lists.get(position).getDif()<0){holder.dif.setTextColor(Color.RED);}
+        if(lists.get(position).getDif()>0){holder.dif.setTextColor(Color.GREEN);}
+        if(lists.get(position).getDif()==0){holder.dif.setTextColor(Color.BLACK);}
     }
     // 数据个数
     @Override
