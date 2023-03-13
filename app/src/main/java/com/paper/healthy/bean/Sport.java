@@ -36,6 +36,11 @@ public class Sport extends LitePalSupport {
         return stime;
     }
 
+
+    public String getStime2() {
+        return stime.substring(0,10);
+    }
+
     public void setStime(String stime) {
         this.stime = stime;
     }
@@ -51,6 +56,8 @@ public class Sport extends LitePalSupport {
     public int getTime() {
         return time;
     }
+
+
 
     public void setTime(int time) {
         this.time = time;

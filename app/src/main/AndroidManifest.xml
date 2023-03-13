@@ -49,6 +49,9 @@
         <activity
             android:name=".sports.SportTimeActivity"
             android:exported="false" />
+
+        <activity android:name=".eye.EyeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

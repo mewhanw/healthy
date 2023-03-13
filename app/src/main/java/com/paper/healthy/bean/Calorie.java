@@ -33,6 +33,10 @@ public class Calorie extends LitePalSupport {
         return time;
     }
 
+    public String getTime2() {
+        return time.substring(0,10);
+    }
+
     public void setTime(String time) {
         this.time = time;
     }

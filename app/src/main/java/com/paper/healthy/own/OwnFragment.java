@@ -23,12 +23,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.CollectionUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.paper.healthy.R;
 import com.paper.healthy.bean.Calorie;
+import com.paper.healthy.bean.Eye;
 import com.paper.healthy.bean.Weigt;
 import com.paper.healthy.config.SpConfig;
+import com.paper.healthy.eye.EyeActivity;
 
 import org.litepal.LitePal;
 
@@ -55,6 +58,8 @@ public class OwnFragment extends Fragment {
    private EditText wei;
    // 退出
    private Button exit;
+   // 查看卡路里
+   private Button eye;
 
    // 男女
    private RadioGroup group;
@@ -84,6 +89,8 @@ public class OwnFragment extends Fragment {
         submit = contextView.findViewById(R.id.submit);
         // 退出
         exit = contextView.findViewById(R.id.exit);
+        // 查看卡路里
+        eye = contextView.findViewById(R.id.eye);
         // 身高
         hei = contextView.findViewById(R.id.hei);
         // 体重
@@ -257,6 +264,13 @@ public class OwnFragment extends Fragment {
                                 }
                             }
                         }).show();// show展示dialog
+            }
+        });
+
+        eye.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                ActivityUtils.startActivity(EyeActivity.class);
             }
         });
     }
